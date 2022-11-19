@@ -1,0 +1,44 @@
+swagger: '2.0'
+info:
+  description: OpenWeatherMap Wrapper API ドキュメント
+  version: 0.0.1
+  title: OpenWeatherMap Wrapper REST APIs
+#host: localhost:8080
+basePath: /api
+tags:
+  - name: owm
+    description: OpenWeatherMap APIs
+schemes:
+  - http
+  - https
+paths:
+  /forecast:
+    get:
+      tags:
+        - own
+      summary: 予測取得
+      description: 予測取得
+      produces:
+        - application/json
+      parameters:
+        - name: q
+          type: string
+          in: query
+          description: 地名(ex. "Chiba-shi,jp")
+        - name: zip
+          type: string
+          in: query
+          description: 郵便番号(ex. "104-0061,jp")
+        - name: lat
+          type: number
+          in: query
+          description: 緯度(ex. 35.6590424220025)
+        - name: lng
+          type: number
+          in: query
+          description: 経度(ex. 139.700615108013)
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: エラー
